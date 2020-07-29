@@ -27,7 +27,8 @@ namespace Stripe
         #region Expandable Charge
 
         /// <summary>
-        /// ID of the charge associated with this review.
+        /// (ID of the Charge)
+        /// The charge associated with this review.
         /// </summary>
         [JsonIgnore]
         public string ChargeId
@@ -37,7 +38,10 @@ namespace Stripe
         }
 
         /// <summary>
+        /// (Expanded)
         /// The charge associated with this review.
+        ///
+        /// For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
         /// </summary>
         [JsonIgnore]
         public Charge Charge
@@ -80,8 +84,8 @@ namespace Stripe
         public ReviewLocation IpAddressLocation { get; set; }
 
         /// <summary>
-        /// Has the value <c>true</c> if the object exists in live mode or the value
-        /// <c>false</c> if the object exists in test mode.
+        /// Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+        /// the object exists in test mode.
         /// </summary>
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
@@ -101,7 +105,8 @@ namespace Stripe
         #region Expandable PaymentIntent
 
         /// <summary>
-        /// ID of the PaymentIntent associated with this review, if one exists.
+        /// (ID of the PaymentIntent)
+        /// The PaymentIntent ID associated with this review, if one exists.
         /// </summary>
         [JsonIgnore]
         public string PaymentIntentId
@@ -111,7 +116,10 @@ namespace Stripe
         }
 
         /// <summary>
-        /// PaymentIntent associated with this review, if one exists.
+        /// (Expanded)
+        /// The PaymentIntent ID associated with this review, if one exists.
+        ///
+        /// For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
         /// </summary>
         [JsonIgnore]
         public PaymentIntent PaymentIntent

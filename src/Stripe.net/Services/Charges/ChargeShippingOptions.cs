@@ -8,7 +8,7 @@ namespace Stripe
         /// Shipping address.
         /// </summary>
         [JsonProperty("address")]
-        public AddressOptions Address { get; set; }
+        public ChargeShippingAddressOptions Address { get; set; }
 
         /// <summary>
         /// The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc.

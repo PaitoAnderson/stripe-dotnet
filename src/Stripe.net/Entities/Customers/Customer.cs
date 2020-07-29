@@ -43,7 +43,8 @@ namespace Stripe
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The currency the customer can be charged in for recurring billing purposes.
+        /// Three-letter <a href="https://stripe.com/docs/currencies">ISO code for the currency</a>
+        /// the customer can be charged in for recurring billing purposes.
         /// </summary>
         [JsonProperty("currency")]
         public string Currency { get; set; }
@@ -51,7 +52,12 @@ namespace Stripe
         #region Expandable DefaultSource
 
         /// <summary>
-        /// ID of the default source attached to this customer.
+        /// (ID of the IPaymentSource)
+        /// ID of the default payment source for the customer.
+        ///
+        /// If you are using payment methods created via the PaymentMethods API, see the <a
+        /// href="https://stripe.com/docs/api/customers/object#customer_object-invoice_settings-default_payment_method">invoice_settings.default_payment_method</a>
+        /// field instead.
         /// </summary>
         [JsonIgnore]
         public string DefaultSourceId
@@ -60,6 +66,16 @@ namespace Stripe
             set => this.InternalDefaultSource = SetExpandableFieldId(value, this.InternalDefaultSource);
         }
 
+        /// <summary>
+        /// (Expanded)
+        /// ID of the default payment source for the customer.
+        ///
+        /// If you are using payment methods created via the PaymentMethods API, see the <a
+        /// href="https://stripe.com/docs/api/customers/object#customer_object-invoice_settings-default_payment_method">invoice_settings.default_payment_method</a>
+        /// field instead.
+        ///
+        /// For more information, see the <a href="https://stripe.com/docs/expand">expand documentation</a>.
+        /// </summary>
         [JsonIgnore]
         public IPaymentSource DefaultSource
         {
@@ -78,14 +94,14 @@ namespace Stripe
         [JsonProperty("default_source_type")]
         public string DefaultSourceType { get; set; }
 
-        /// <summary>
-        /// Whether this object is deleted or not.
-        /// </summary>
         [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         /// <summary>
-        /// Whether or not the latest charge for the customer's latest invoice has failed.
+        /// When the customer's latest invoice is billed by charging automatically, delinquent is
+        /// true if the invoice's latest charge is failed. When the customer's latest invoice is
+        /// billed by sending an invoice, delinquent is true if the invoice is not paid by its due
+        /// date.
         /// </summary>
         [JsonProperty("delinquent")]
         public bool Delinquent { get; set; }
@@ -114,22 +130,20 @@ namespace Stripe
         [JsonProperty("invoice_prefix")]
         public string InvoicePrefix { get; set; }
 
-        /// <summary>
-        /// The customer's default invoice settings.
-        /// </summary>
         [JsonProperty("invoice_settings")]
         public CustomerInvoiceSettings InvoiceSettings { get; set; }
 
         /// <summary>
-        /// Has the value <c>true</c> if the object exists in live mode or the value
-        /// <c>false</c> if the object exists in test mode.
+        /// Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+        /// the object exists in test mode.
         /// </summary>
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
 
         /// <summary>
-        /// A set of key/value pairs that you can attach to a customer object. It can be useful for
-        /// storing additional information about the customer in a structured format.
+        /// Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+        /// attach to an object. This can be useful for storing additional information about the
+        /// object in a structured format.
         /// </summary>
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
@@ -141,7 +155,7 @@ namespace Stripe
         public string Name { get; set; }
 
         /// <summary>
-        /// The suffix of the customer's next invoice number.
+        /// The suffix of the customer's next invoice number, e.g., 0001.
         /// </summary>
         [JsonProperty("next_invoice_sequence")]
         public long NextInvoiceSequence { get; set; }
@@ -179,13 +193,14 @@ namespace Stripe
 
         /// <summary>
         /// Describes the customer's tax exemption status. One of <c>none</c>, <c>exempt</c>, or
-        /// <c>reverse</c>.
+        /// <c>reverse</c>. When set to <c>reverse</c>, invoice and receipt PDFs include the text
+        /// <strong>"Reverse charge"</strong>.
         /// </summary>
         [JsonProperty("tax_exempt")]
         public string TaxExempt { get; set; }
 
         /// <summary>
-        /// The customer's current tax ids, if any.
+        /// The customer's tax IDs.
         /// </summary>
         [JsonProperty("tax_ids")]
         public StripeList<TaxId> TaxIds { get; set; }

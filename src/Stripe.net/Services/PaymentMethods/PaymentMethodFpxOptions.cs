@@ -5,13 +5,13 @@ namespace Stripe
     public class PaymentMethodFpxOptions : INestedOptions
     {
         /// <summary>
-        /// Account holder type for FPX transaction. Can be one of "individual" or "company".
+        /// Account holder type for FPX transaction.
         /// </summary>
         [JsonProperty("account_holder_type")]
         public string AccountHolderType { get; set; }
 
         /// <summary>
-        /// FPX bank name.
+        /// The customer's bank.
         /// </summary>
         [JsonProperty("bank")]
         public string Bank { get; set; }

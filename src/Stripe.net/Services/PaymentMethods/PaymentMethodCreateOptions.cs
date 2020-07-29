@@ -6,19 +6,22 @@ namespace Stripe
     public class PaymentMethodCreateOptions : BaseOptions, IHasMetadata
     {
         /// <summary>
-        /// Parameters specific to AU BECS Debit PaymentMethod.
+        /// If this is an <c>au_becs_debit</c> PaymentMethod, this hash contains details about the
+        /// bank account.
         /// </summary>
         [JsonProperty("au_becs_debit")]
         public PaymentMethodAuBecsDebitOptions AuBecsDebit { get; set; }
 
         /// <summary>
-        /// Parameters specific to BACS Debit PaymentMethod.
+        /// If this is a <c>bacs_debit</c> PaymentMethod, this hash contains details about the Bacs
+        /// Direct Debit bank account.
         /// </summary>
         [JsonProperty("bacs_debit")]
         public PaymentMethodBacsDebitOptions BacsDebit { get; set; }
 
         /// <summary>
-        /// Parameters specific to Bancontact PaymentMethod.
+        /// If this is a <c>bancontact</c> PaymentMethod, this hash contains details about the
+        /// Bancontact payment method.
         /// </summary>
         [JsonProperty("bancontact")]
         public PaymentMethodBancontactOptions Bancontact { get; set; }
@@ -30,72 +33,75 @@ namespace Stripe
         [JsonProperty("billing_details")]
         public BillingDetailsOptions BillingDetails { get; set; }
 
-        /// <summary>
-        /// Parameters specific to Card PaymentMethod.
-        /// </summary>
         [JsonProperty("card")]
         public PaymentMethodCardOptions Card { get; set; }
 
         /// <summary>
-        /// The customer associated with the PaymentMethod that you are trying to share with a
-        /// connected account.
+        /// The <c>Customer</c> to whom the original PaymentMethod is attached.
         /// </summary>
         [JsonProperty("customer")]
         public string Customer { get; set; }
 
         /// <summary>
-        /// Parameters specific to Eps PaymentMethod.
+        /// If this is an <c>eps</c> PaymentMethod, this hash contains details about the EPS payment
+        /// method.
         /// </summary>
         [JsonProperty("eps")]
         public PaymentMethodEpsOptions Eps { get; set; }
 
         /// <summary>
-        /// Parameters specific to FPX PaymentMethod.
+        /// If this is an <c>fpx</c> PaymentMethod, this hash contains details about the FPX payment
+        /// method.
         /// </summary>
         [JsonProperty("fpx")]
         public PaymentMethodFpxOptions Fpx { get; set; }
 
         /// <summary>
-        /// Parameters specific to Giropay PaymentMethod.
+        /// If this is a <c>giropay</c> PaymentMethod, this hash contains details about the Giropay
+        /// payment method.
         /// </summary>
         [JsonProperty("giropay")]
         public PaymentMethodGiropayOptions Giropay { get; set; }
 
         /// <summary>
-        /// Parameters specific to iDEAL PaymentMethod.
+        /// If this is an <c>ideal</c> PaymentMethod, this hash contains details about the iDEAL
+        /// payment method.
         /// </summary>
         [JsonProperty("ideal")]
         public PaymentMethodIdealOptions Ideal { get; set; }
 
         /// <summary>
-        /// Parameters specific to Interac Present PaymentMethod.
+        /// If this is an <c>interac_present</c> PaymentMethod, this hash contains details about the
+        /// Interac Present payment method.
         /// </summary>
         [JsonProperty("interac_present")]
         public PaymentMethodInteracPresentOptions InteracPresent { get; set; }
 
         /// <summary>
-        /// A set of key/value pairs that you can attach to a charge object. It can be useful for
-        /// storing additional information about the customer in a structured format. It's often a
-        /// good idea to store an email address in metadata for tracking later.
+        /// Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+        /// attach to an object. This can be useful for storing additional information about the
+        /// object in a structured format. Individual keys can be unset by posting an empty value to
+        /// them. All keys can be unset by posting an empty value to <c>metadata</c>.
         /// </summary>
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
         /// <summary>
-        /// Parameters specific to P24 PaymentMethod.
+        /// If this is a <c>p24</c> PaymentMethod, this hash contains details about the P24 payment
+        /// method.
         /// </summary>
         [JsonProperty("p24")]
         public PaymentMethodP24Options P24 { get; set; }
 
         /// <summary>
-        /// The id of the PaymentMethod that you are trying to share with a Connected account.
-        /// This only works with Stripe Connect.
+        /// The PaymentMethod to share.
         /// </summary>
         [JsonProperty("payment_method")]
         public string PaymentMethod { get; set; }
 
         /// <summary>
-        /// Parameters specific to SEPA Debit PaymentMethod.
+        /// If this is a <c>sepa_debit</c> PaymentMethod, this hash contains details about the SEPA
+        /// debit bank account.
         /// </summary>
         [JsonProperty("sepa_debit")]
         public PaymentMethodSepaDebitOptions SepaDebit { get; set; }

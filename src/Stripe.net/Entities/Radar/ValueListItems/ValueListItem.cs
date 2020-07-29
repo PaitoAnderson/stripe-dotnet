@@ -26,20 +26,17 @@ namespace Stripe.Radar
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The name or email address of the user who created this item.
+        /// The name or email address of the user who added this item to the value list.
         /// </summary>
         [JsonProperty("created_by")]
         public string CreatedBy { get; set; }
 
-        /// <summary>
-        /// Whether this object is deleted or not.
-        /// </summary>
         [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         /// <summary>
-        /// Has the value <c>true</c> if the object exists in live mode or the value
-        /// <c>false</c> if the object exists in test mode.
+        /// Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+        /// the object exists in test mode.
         /// </summary>
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }

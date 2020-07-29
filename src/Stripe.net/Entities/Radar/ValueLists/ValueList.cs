@@ -38,9 +38,6 @@ namespace Stripe.Radar
         [JsonProperty("created_by")]
         public string CreatedBy { get; set; }
 
-        /// <summary>
-        /// Whether this object is deleted or not.
-        /// </summary>
         [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
@@ -59,15 +56,16 @@ namespace Stripe.Radar
         public StripeList<ValueListItem> ListItems { get; set; }
 
         /// <summary>
-        /// Has the value <c>true</c> if the object exists in live mode or the value
-        /// <c>false</c> if the object exists in test mode.
+        /// Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+        /// the object exists in test mode.
         /// </summary>
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
 
         /// <summary>
-        /// A set of key/value pairs that you can attach to an order object. It can be useful for
-        /// storing additional information about the order in a structured format.
+        /// Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can
+        /// attach to an object. This can be useful for storing additional information about the
+        /// object in a structured format.
         /// </summary>
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

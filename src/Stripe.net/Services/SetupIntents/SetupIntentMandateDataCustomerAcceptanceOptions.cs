@@ -7,7 +7,7 @@ namespace Stripe
     public class SetupIntentMandateDataCustomerAcceptanceOptions : INestedOptions
     {
         /// <summary>
-        /// <see cref="DateTime"/> at which the customer accepted the Mandate.
+        /// The time at which the customer accepted the Mandate.
         /// </summary>
         [JsonProperty("accepted_at")]
         [JsonConverter(typeof(UnixDateTimeConverter))]

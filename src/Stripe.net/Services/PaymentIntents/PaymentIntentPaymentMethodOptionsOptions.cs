@@ -5,7 +5,8 @@ namespace Stripe
     public class PaymentIntentPaymentMethodOptionsOptions : INestedOptions
     {
         /// <summary>
-        /// Configuration for any Bancontact payments attempted on this PaymentIntent.
+        /// If this is a <c>bancontact</c> PaymentMethod, this sub-hash contains details about the
+        /// Bancontact payment method options.
         /// </summary>
         [JsonProperty("bancontact")]
         public PaymentIntentPaymentMethodOptionsBancontactOptions Bancontact { get; set; }

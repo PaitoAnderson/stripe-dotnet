@@ -32,9 +32,6 @@ namespace Stripe.Sigma
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime DataLoadTime { get; set; }
 
-        /// <summary>
-        /// If the query run was not successful, this field contains information about the failure.
-        /// </summary>
         [JsonProperty("error")]
         public ScheduledQueryRunError Error { get; set; }
 
@@ -45,8 +42,8 @@ namespace Stripe.Sigma
         public File File { get; set; }
 
         /// <summary>
-        /// Has the value <c>true</c> if the object exists in live mode or the value
-        /// <c>false</c> if the object exists in test mode.
+        /// Has the value <c>true</c> if the object exists in live mode or the value <c>false</c> if
+        /// the object exists in test mode.
         /// </summary>
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }

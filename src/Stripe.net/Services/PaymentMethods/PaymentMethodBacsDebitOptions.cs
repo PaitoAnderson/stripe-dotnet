@@ -11,7 +11,7 @@ namespace Stripe
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Sort code of the bank account.
+        /// Sort code of the bank account. (e.g., <c>10-20-30</c>)
         /// </summary>
         [JsonProperty("sort_code")]
         public string SortCode { get; set; }

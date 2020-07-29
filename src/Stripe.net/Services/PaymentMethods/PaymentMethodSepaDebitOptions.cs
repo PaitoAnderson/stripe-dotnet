@@ -5,7 +5,7 @@ namespace Stripe
     public class PaymentMethodSepaDebitOptions : INestedOptions
     {
         /// <summary>
-        /// IBAN associated with this payment method. This only works on creation.
+        /// IBAN of the bank account.
         /// </summary>
         [JsonProperty("iban")]
         public string Iban { get; set; }

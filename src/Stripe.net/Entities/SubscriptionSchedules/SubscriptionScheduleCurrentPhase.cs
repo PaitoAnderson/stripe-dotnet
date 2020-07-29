@@ -7,7 +7,7 @@ namespace Stripe
     public class SubscriptionScheduleCurrentPhase : StripeEntity<SubscriptionScheduleCurrentPhase>
     {
         /// <summary>
-        /// The end of the this phase of the subscription schedule.
+        /// The end of this phase of the subscription schedule.
         /// </summary>
         [JsonProperty("end_date")]
         [JsonConverter(typeof(UnixDateTimeConverter))]

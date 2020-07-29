@@ -4,10 +4,6 @@ namespace Stripe
 
     public class PaymentIntentNextAction : StripeEntity<PaymentIntentNextAction>
     {
-        /// <summary>
-        /// Contains instructions for authenticating a payment by redirecting your customer to
-        /// another page or application.
-        /// </summary>
         [JsonProperty("redirect_to_url")]
         public PaymentIntentNextActionRedirectToUrl RedirectToUrl { get; set; }
 
